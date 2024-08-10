@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>back to Allah</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #E0FFFF, #FFFFE0, #FAF0E6);
+            background-size: 400% 400%;
+            animation: gradientBG 7s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #8B008B;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #FF8C00;
+            margin-bottom: 2rem;
+        }
+
+        .heart {
+            color: #ff6f61;
+            font-size: 3rem;
+            cursor: pointer;
+            animation: beat 1s infinite;
+        }
+
+        @keyframes beat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .message {
+            display: none;
+            font-size: 1rem;
+            color: #8A2BE2;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>التوبة</h1>
+        <p>Sholat yuk!, masa udah jelek dimata manusia jelek juga dimata Allah kan gak lucu.</p>
+        <p class="heart" id="heart">🫠</p>
+        <p class="message" id="message">  وَاسْتَعِينُوا بِالصَّبْرِ وَالصَّلَوٰةِ ۚ وَإِنَّهَا لَكَبِيرَةٌ إِلَّا عَلَى ٱلْخَٰشِعِينَ
+          <br>𝗔𝗿𝘁𝗶𝗻𝘆𝗮: Jadikanlah sabar dan shalat sebagai penolongmu. Dan sesungguhnya yang demikian itu sungguh berat, kecuali bagi orang-orang yang khusyu.
+          <br>
+          (QS.Al-Baqarah Ayat 45)</p>
+    </div>
+
+    <audio id="backgroundMusic" src="sound.mp3" type="audio/mpeg"></audio>
+
+    <script>
+        document.getElementById('heart').addEventListener('click', function() {
+            this.style.color = '#ff4d4d';
+            var message = document.getElementById('message');
+            message.style.display = 'block';
+            message.classList.add('fade-in');
+
+            var audio = document.getElementById('backgroundMusic');
+            audio.play();
+        });
+
+        const fadeInAnimation = document.createElement('style');
+        fadeInAnimation.type = 'text/css';
+        fadeInAnimation.innerHTML = `
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            .fade-in {
+                animation: fadeIn 2s;
+            }
+        `;
+        document.getElementsByTagName('head')[0].appendChild(fadeInAnimation);
+    </script>
+</body>
+</html>
